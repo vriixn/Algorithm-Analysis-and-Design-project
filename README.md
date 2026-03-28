@@ -21,12 +21,13 @@ This project implements and compares two fundamental graph algorithms—**Dijkst
 ### Dijkstra
 - **Best Case:** Ω(V + E) - Occurs when the graph is sparse or the destination is found early.
 - **Average Case:** Θ((V + E) log V) - The typical performance seen in our flight mapping.
-- **Worst Case:** O((V + E) log V) - When every airport is connected to every other airport.
+- **Worst Case:** O((V + E) log V) - This occurs when the algorithm processes all vertices and edges, especially in dense graphs where every airport is connected to many others. In this case, the priority queue operations increase significantly, leading to higher execution time.
 
 ### Bellman-Ford
 - **Best Case:** Ω(E) - Occurs if the graph is already relaxed.
-- **Average/Worst Case:** O(V * E) - Necessary when checking for all possible edge relaxations over V-1 iterations.
-  _________________________________________________________________________________________________________________________________________________________________________
+- **Average/Worst Case:** O(V * E) - This occurs when the algorithm must perform all (V − 1) iterations without early termination. In this case, every edge is relaxed repeatedly in each iteration, resulting in the maximum number of computations. This happens when the shortest paths require continuous updates and no early convergence is achieved.
+
+However, in this project, the algorithm converged early, which significantly reduced the actual runtime compared to the theoretical worst case.  _________________________________________________________________________________________________________________________________________________________________________
 ## Milestone 1: Proposal
 - * **Status:** Completed ✅
 ## Milestone 2: Algorithm Comparison
